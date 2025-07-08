@@ -34,6 +34,12 @@ export default function LevelDetail() {
           <h2 className="text-xl font-semibold">Git URL</h2>
           <a href={level.gitUrl} className="text-blue-500">{level.gitUrl}</a>
         </div>
+        <iframe
+ frameBorder="0"
+ height="450px"  
+ src="https://onecompiler.com/embed/python" 
+ width="100%"
+ ></iframe>
         <button
           onClick={() => location.href = "/home"}
           className="bg-blue-500 text-white px-4 py-2 rounded-lg"
