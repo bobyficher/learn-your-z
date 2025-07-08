@@ -1,17 +1,20 @@
 "use client"
 import { levels } from '@/src/data/levels';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function LevelDetail() {
   let id = '';
+  type FirstItemType = typeof levels[0];
+  const [level, setlevel] = useState<FirstItemType>();
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     id = urlParams.get('id') ?? "";
+    const level = levels.find((l) => l.id === parseInt(id as string));
+    setlevel(level);
   }, []); // Empty dependency array ensures it runs once after mount
 
-  const level = levels.find((l) => l.id === parseInt(id as string));
-
+  
   if (!level) {
     return <div>Level not found</div>;
   }
